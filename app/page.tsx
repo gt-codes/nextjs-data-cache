@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
-
 export default async function Home() {
-	const data = await fetch('https://api.github.com/users/leerob').then((res) => res.json());
+	const data = await fetch('https://api.github.com/users/gt-codes', {
+		next: { revalidate: 10 },
+	}).then((res) => res.json());
 
 	return (
 		<main className='flex min-h-screen flex-col items-center justify-between p-24'>
